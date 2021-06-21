@@ -19,8 +19,8 @@ public class EnderecoDTO {
     private String state;
     private String country;
     private String zipcode;
-    private String latitude;
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
 
     public void validarCamposObrigatorios() throws BusinessException {
         log.info("Iniciando validação campos obrigatórios");

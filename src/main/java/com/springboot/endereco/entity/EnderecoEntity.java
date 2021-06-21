@@ -38,8 +38,8 @@ public class EnderecoEntity {
     private String country;
     @Column(nullable = false)
     private String zipcode;
-    private String latitude;
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
 
     public void validarCamposObrigatorios() throws BusinessException {
         log.info("Iniciando validação campos obrigatórios");
@@ -53,5 +53,13 @@ public class EnderecoEntity {
                 StringUtil.isNullOrEmptyOrBlank(this.zipcode)) {
             throw new BusinessException("Campos Obrigatórios não preenchidos corretamente");
         }
+    }
+
+    public String toStringParam() {
+        return String.format(this.number.trim() + "+"
+                + this.streetName.trim() + "+"
+                + this.city.trim() + "+"
+                + this.state.trim() + "+"
+                + this.country.trim());
     }
 }
