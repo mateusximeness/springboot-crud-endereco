@@ -50,8 +50,9 @@ public class EnderecoService {
         var entityBd = repository.findById(entity.getId());
         if (entityBd.isPresent()) {
             repository.delete(entity);
+        } else {
+            throw new BusinessException("Endereço não encontrado na base de dados");
         }
-        throw new BusinessException("Endereço não encontrado na base de dados");
 
     }
 
